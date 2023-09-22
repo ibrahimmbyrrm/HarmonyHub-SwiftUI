@@ -11,7 +11,7 @@ import SwiftUI
 struct HarmonyHub_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabBar()
         }
     }
 }
