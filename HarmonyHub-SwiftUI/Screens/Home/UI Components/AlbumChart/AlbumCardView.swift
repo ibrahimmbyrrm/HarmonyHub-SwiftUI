@@ -6,18 +6,21 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct AlbumCardView : View {
+    
+    var album : AlbumsDatum
+    
     var body: some View {
         VStack(alignment : .leading) {
-            Image("sampleAlbum")
-                .resizable()
+            MCImage(urlString: album.coverBig)
                 .frame(width: 150,height: 150)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
             Group {
-                Text("Race the Night")
+                Text(album.title)
                     .foregroundStyle(.primary)
-                Text("Ash")
+                Text(album.artist?.name ?? "")
                     .foregroundStyle(Color.init(uiColor: UIColor.lightGray))
             }
             .padding(.leading,3)
@@ -26,6 +29,3 @@ struct AlbumCardView : View {
     }
 }
 
-#Preview {
-    AlbumCardView()
-}

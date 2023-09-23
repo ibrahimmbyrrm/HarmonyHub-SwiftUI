@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 final class HomeViewModel : ObservableObject {
     
     var service : NetworkService

@@ -8,12 +8,19 @@
 import SwiftUI
 
 struct AlbumChartScrollView: View {
+    
+    var albums : [AlbumsDatum]?
+    
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
-                ForEach(1..<10) { _ in
-                    AlbumCardView()
+                ForEach(albums ?? [AlbumsDatum](),id: \.id) { album in
+                    AlbumCardView(album: album)
                         .padding(.horizontal,5)
+                        .scrollTransition { content, phase in
+                            content
+                                .scaleEffect(phase.isIdentity ? 1 : 0.9)
+                        }
                 }
             }
         }
@@ -22,6 +29,3 @@ struct AlbumChartScrollView: View {
     }
 }
 
-#Preview {
-    AlbumChartScrollView()
-}

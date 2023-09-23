@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct TrackCardView: View {
     
@@ -13,16 +14,9 @@ struct TrackCardView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: selectedTrack?.album.coverBig ?? "")) { image in
-                image
-                    .resizable()
-                    .frame(width: 180, height: 180)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-            } placeholder: {
-                Image(systemName: "music.mis")
-                    .resizable()
-                    .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-            }
+            MCImage(urlString: selectedTrack?.album.coverBig ?? "")
+                .frame(width: 180, height: 180)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
             Text(selectedTrack?.title ?? "")
             Text(selectedTrack?.artist?.name ?? "")
                 .foregroundStyle(Color(uiColor: .lightGray))

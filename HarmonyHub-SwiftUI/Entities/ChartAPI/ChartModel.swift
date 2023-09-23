@@ -23,9 +23,9 @@ struct Albums: Codable {
 // MARK: - AlbumsDatum
 struct AlbumsDatum: Codable {
     let id: Int
-    let title: String?
+    let title: String
     let link, cover: String?
-    let coverSmall, coverMedium, coverBig, coverXl: String?
+    let coverSmall, coverMedium, coverBig, coverXl: String
     let md5Image: String?
     let tracklist: String?
     let explicitLyrics: Bool?
@@ -89,7 +89,7 @@ struct PlaylistsDatum: Codable {
     let title: String
     let nbTracks: Int?
     let link, picture: String?
-    let pictureSmall, pictureMedium, pictureBig, pictureXl: String?
+    let pictureSmall, pictureMedium, pictureBig, pictureXl: String
     let checksum: String?
     let tracklist: String?
     let creationDate, md5Image: String?
@@ -196,9 +196,9 @@ struct TracksDatum: Codable {
 // MARK: - Album
 struct Album: Codable {
     let id: Int
-    let title: String?
+    let title: String
     let cover: String?
-    let coverSmall, coverMedium, coverBig, coverXl: String?
+    let coverSmall, coverMedium, coverBig, coverXl: String
     let md5Image: String?
     let tracklist: String?
 

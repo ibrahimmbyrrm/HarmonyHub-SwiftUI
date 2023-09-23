@@ -16,7 +16,7 @@ struct HomeView: View {
             ScrollView {
                 VStack {
                     TopButtons()
-                    AlbumChartScrollView()
+                    AlbumChartScrollView(albums: viewModel.chart?.albums.data)
                     HomeTitle(title: "Artists")
                     ArtistChartScrollView(artists: viewModel.chart?.artists.data)
                     HomeTitle(title: "Popular Tracks")
@@ -34,7 +34,6 @@ struct HomeView: View {
         }
     }
 }
-
 #Preview {
     HomeView()
 }

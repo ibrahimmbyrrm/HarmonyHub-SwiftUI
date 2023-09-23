@@ -17,6 +17,10 @@ struct ArtistChartScrollView: View {
                 ForEach(artists ?? [ArtistElement](),id: \.id) { artist in
                     ArtistCardView(artist: artist)
                         .padding(.horizontal,5)
+                        .scrollTransition { content, phase in
+                            content
+                                .scaleEffect(phase.isIdentity ? 1 : 0.9)
+                        }
                 }
             }
         }

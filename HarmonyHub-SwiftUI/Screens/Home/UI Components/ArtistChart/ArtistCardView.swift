@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ArtistCardView : View {
     
@@ -13,20 +14,9 @@ struct ArtistCardView : View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: artist.pictureXl!), content: { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 70, height: 70)
-            }, placeholder: {
-                Image(systemName: "person.circle")
-                    .symbolRenderingMode(.multicolor)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 70, height: 70)
-            })
-            
-            .clipShape(Circle())
+            MCImage(urlString: artist.pictureMedium ?? "")
+                .frame(width: 70, height: 70)
+                .clipShape(Circle())
             Text(artist.name)
                 .foregroundStyle(.black)
         }
