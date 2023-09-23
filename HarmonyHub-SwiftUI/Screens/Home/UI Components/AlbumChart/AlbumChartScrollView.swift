@@ -15,12 +15,16 @@ struct AlbumChartScrollView: View {
         ScrollView(.horizontal) {
             HStack {
                 ForEach(albums ?? [AlbumsDatum](),id: \.id) { album in
-                    AlbumCardView(album: album)
-                        .padding(.horizontal,5)
-                        .scrollTransition { content, phase in
-                            content
-                                .scaleEffect(phase.isIdentity ? 1 : 0.9)
-                        }
+                    NavigationLink {
+                        AlbumDetailView(selectedalbumId: album.id)
+                    } label: {
+                        AlbumCardView(album: album)
+                            .padding(.horizontal,5)
+                    }
+                    .scrollTransition { content, phase in
+                        content
+                            .scaleEffect(phase.isIdentity ? 1 : 0.9)
+                    }
                 }
             }
         }

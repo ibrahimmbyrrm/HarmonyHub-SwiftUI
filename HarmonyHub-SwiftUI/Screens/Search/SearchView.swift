@@ -25,7 +25,6 @@ struct SearchView: View {
             .navigationTitle("Let's Discover")
         }
         .searchable(text: $viewModel.searchText,prompt: Text("What do you want to listen"))
-
         .onAppear() {
             viewModel.fetchPlaylists()
         }

@@ -19,7 +19,7 @@ struct TracksListOfPlaylist: View {
                                     content
                                         .opacity(phase.isIdentity ? 1 : 0)
                                         .scaleEffect(phase.isIdentity ? 1 : 0.75)
-                                        .blur(radius: phase.isIdentity ? 0 : 10)
+                                        .blur(radius: phase.isIdentity ? 0 : 1)
                                 }
                     
             }

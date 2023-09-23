@@ -1,29 +1,29 @@
 //
-//  ArtistChartScrollView.swift
+//  ArtistsAlbumsScrollView.swift
 //  HarmonyHub-SwiftUI
 //
-//  Created by İbrahim Bayram on 22.09.2023.
+//  Created by İbrahim Bayram on 23.09.2023.
 //
 
 import SwiftUI
 
-struct ArtistChartScrollView: View {
+struct ArtistsAlbumsScrollView: View {
     
-    var artists : [ArtistElement]?
+    var albums : [BaseAlbum]
     
     var body: some View {
         ScrollView(.horizontal) {
-            HStack {
-                ForEach(artists ?? [ArtistElement](),id: \.id) { artist in
+            HStack() {
+                ForEach(albums,id: \.id) { album in
                     NavigationLink {
-                        ArtistDetailView(selectedArtistId: artist.id)
+                        AlbumDetailView(selectedalbumId: album.id)
                     } label: {
-                        ArtistCardView(artist: artist)
+                        ArtistsAlbumCard(album: album)
                             .padding(.horizontal,5)
                     }
                     .scrollTransition { content, phase in
                         content
-                            .scaleEffect(phase.isIdentity ? 1 : 0.9)
+                            .scaleEffect(phase.isIdentity ? 1 : 0.75)
                     }
                 }
             }
@@ -32,3 +32,4 @@ struct ArtistChartScrollView: View {
         .padding(.horizontal,5)
     }
 }
+

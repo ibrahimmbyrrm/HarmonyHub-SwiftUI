@@ -15,7 +15,15 @@ struct SearchResultList : View {
         VStack {
             ForEach(searchResults,id: \.id) { track in
                 TrackCell(track: track)
+                    .swipeActions() {
+                        Button(action: {
+                            
+                        }, label: {
+                            Text("Add To Playlist")
+                        })
+                    }
             }
+            
         }
         
     }

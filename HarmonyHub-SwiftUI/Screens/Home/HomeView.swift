@@ -21,7 +21,6 @@ struct HomeView: View {
                     ArtistChartScrollView(artists: viewModel.chart?.artists.data)
                     HomeTitle(title: "Popular Tracks")
                     ArtistChartGridView(tracks: viewModel.chart?.tracks.data)
-                    
                 }
             }
             .background(Color.white)

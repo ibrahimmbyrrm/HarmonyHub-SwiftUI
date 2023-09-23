@@ -21,6 +21,10 @@ struct PlaylistGridView : View {
                     PlaylistCardView(playlist: playlist)
                         .frame(width: 180,height: 180)
                 }
+                .scrollTransition { content, phase in
+                    content
+                        .offset(x: phase.isIdentity ? 0 : 10)
+                }
             }
         })
     }
