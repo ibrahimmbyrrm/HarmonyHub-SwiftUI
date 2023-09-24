@@ -7,18 +7,20 @@
 
 import SwiftUI
 import Kingfisher
+import AVFAudio
+import AVFoundation
 
 struct TrackCell: View {
-    
-    var track : TracksDatum
-    @State private var isPlaying = false
-    
+    var track: TracksDatum
+    @StateObject private var soundManager = SoundManager.shared
+    @ObservedObject private var tracksManager = TracksManager.shared
+
     var body: some View {
         HStack {
             MCImage(urlString: track.album.coverBig)
                 .frame(width: 76, height: 76)
-                .padding(.horizontal,5)
-            VStack(alignment:.leading,spacing:8) {
+                .padding(.horizontal, 5)
+            VStack(alignment: .leading, spacing: 8) {
                 Text(track.title)
                     .font(.custom("ariel", size: 18))
                     .foregroundStyle(.black)
@@ -29,14 +31,19 @@ struct TrackCell: View {
             Spacer()
             Button(action: {
                 withAnimation {
-                    isPlaying.toggle()
+                    if tracksManager.isTrackPlaying(track) {
+                        soundManager.audioPlayer?.pause()
+                    } else {
+                        soundManager.playSound(sound: track.preview)
+                        soundManager.audioPlayer?.play()
+                    }
+                    tracksManager.playTrack(track)
                 }
             }, label: {
-                Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                Image(systemName: tracksManager.isTrackPlaying(track) ? "pause.fill" : "play.fill")
                     .foregroundStyle(.indigo)
             })
             .padding()
-
         }
         .frame(height: 80)
         .background(Color.white)

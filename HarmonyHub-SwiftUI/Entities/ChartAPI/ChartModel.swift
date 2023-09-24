@@ -167,7 +167,11 @@ struct Tracks: Codable {
 }
 
 // MARK: - TracksDatum
-struct TracksDatum: Codable {
+struct TracksDatum: Codable, Equatable {
+    static func == (lhs: TracksDatum, rhs: TracksDatum) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let id: Int
     let title : String
     let link: String?

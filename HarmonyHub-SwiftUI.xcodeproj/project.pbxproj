@@ -54,6 +54,8 @@
 		806CC5C52ABDC44F0028EA4D /* TopButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CC5C42ABDC44F0028EA4D /* TopButtons.swift */; };
 		806CC5C72ABDC4EF0028EA4D /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CC5C62ABDC4EF0028EA4D /* TopButton.swift */; };
 		806CC5C92ABDC68A0028EA4D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CC5C82ABDC68A0028EA4D /* HomeViewModel.swift */; };
+		808845702AC040FE00717DB2 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088456F2AC040FE00717DB2 /* AudioManager.swift */; };
+		808845722AC0410200717DB2 /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808845712AC0410200717DB2 /* TrackManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +105,8 @@
 		806CC5C42ABDC44F0028EA4D /* TopButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtons.swift; sourceTree = "<group>"; };
 		806CC5C62ABDC4EF0028EA4D /* TopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
 		806CC5C82ABDC68A0028EA4D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		8088456F2AC040FE00717DB2 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		808845712AC0410200717DB2 /* TrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +276,7 @@
 		806CC58F2ABDB5B20028EA4D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8088456E2AC040E800717DB2 /* AudioManager */,
 				806CC5922ABDB5FF0028EA4D /* NetworkManager */,
 				8040DD5A2ABF284F002E31AD /* FavoritePlaylistsService.swift */,
 			);
@@ -418,6 +423,15 @@
 			path = TrackChart;
 			sourceTree = "<group>";
 		};
+		8088456E2AC040E800717DB2 /* AudioManager */ = {
+			isa = PBXGroup;
+			children = (
+				8088456F2AC040FE00717DB2 /* AudioManager.swift */,
+				808845712AC0410200717DB2 /* TrackManager.swift */,
+			);
+			path = AudioManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -518,6 +532,7 @@
 				8040DD3F2ABEFB38002E31AD /* PlaylistCardView.swift in Sources */,
 				8040DD4C2ABF1185002E31AD /* SearchResultList.swift in Sources */,
 				806CC5C02ABDC3640028EA4D /* TabBar.swift in Sources */,
+				808845722AC0410200717DB2 /* TrackManager.swift in Sources */,
 				8040DD412ABF0002002E31AD /* TrackCell.swift in Sources */,
 				806CC5842ABDB58C0028EA4D /* HomeView.swift in Sources */,
 				8040DD392ABEF8EA002E31AD /* SearchView.swift in Sources */,
@@ -538,6 +553,7 @@
 				806CC5A92ABDB6370028EA4D /* Album Model.swift in Sources */,
 				806CC5822ABDB58C0028EA4D /* HarmonyHub_SwiftUIApp.swift in Sources */,
 				806CC5AC2ABDB6370028EA4D /* TrackDetail.swift in Sources */,
+				808845702AC040FE00717DB2 /* AudioManager.swift in Sources */,
 				806CC5B32ABDBC6E0028EA4D /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

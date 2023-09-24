@@ -1,6 +1,6 @@
 //
 //  TabBar.swift
-//  HarmonyHub-SwiftUI
+//  HarmwonyHub-SwiftUI
 //
 //  Created by İbrahim Bayram on 22.09.2023.
 //
