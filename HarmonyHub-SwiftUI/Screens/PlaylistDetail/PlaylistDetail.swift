@@ -9,17 +9,16 @@ import SwiftUI
 import Kingfisher
 
 struct PlaylistDetail: View {
-    
+
     var selectedPlaylistId : Int
     @StateObject var viewModel = PlaylistDetailViewModel(service: NetworkManager())
-    
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack {
                     MCImage(urlString: viewModel.detailedPlaylist?.pictureXl ?? "")
                         .frame(width: 250, height: 250)
-                    PlaylistInformationConstainer(playlist: viewModel.detailedPlaylist)
+                    PlaylistInformationContainer(playlist: $viewModel.detailedPlaylist, isFavorite: $viewModel.isFavorite)
                     TracksListOfPlaylist(trackList: viewModel.trackList)
                 }
             }
@@ -29,10 +28,8 @@ struct PlaylistDetail: View {
         }
         .onAppear() {
             viewModel.fetchPlaylistDetails(playlistId: self.selectedPlaylistId)
+            viewModel.checkFavoriteStatus(id: self.selectedPlaylistId)
         }
     }
 }
 
-#Preview {
-    PlaylistDetail(selectedPlaylistId: 7724602362)
-}

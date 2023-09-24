@@ -11,7 +11,6 @@ struct PlaylistGridView : View {
     
     @Binding var columns : [GridItem]
     @Binding var playlists : [PlaylistsDatum]
-    
     var body: some View {
         LazyVGrid(columns: columns, content: {
             ForEach(playlists,id: \.id) { playlist in

@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct TabBar: View {
+    
+    @StateObject var favoriteManager = FavoritesManager.shared
+    
     var body: some View {
         TabView {
             HomeView()
                 .tabItem { Label("Home", systemImage: "house") }
             SearchView()
                 .tabItem { Label("Discover", systemImage: "magnifyingglass") }
+            FavoritePlaylists()
+                .tabItem { Label("Favorites", systemImage: "heart") }
         }
     }
 }

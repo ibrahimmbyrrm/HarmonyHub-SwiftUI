@@ -27,7 +27,7 @@ struct PlayButton: View {
             Image(systemName: tracksManager.isTrackPlaying(track) ? "pause.fill" : "play.fill")
                 .foregroundStyle(.indigo)
                 .padding(7)
-                .background(Color.black.opacity(0.8))
+                .background(Color.gray.opacity(0.5))
                 .clipShape(Circle())
         })
         .padding()

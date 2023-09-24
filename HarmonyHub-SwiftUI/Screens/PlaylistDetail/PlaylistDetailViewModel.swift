@@ -10,12 +10,23 @@ import SwiftUI
 final class PlaylistDetailViewModel : ObservableObject {
     var service : NetworkService
     @Published var detailedPlaylist : DetailedPlaylist?
+    @Published var isFavorite : Bool = false
+
     var trackList : [TracksDatum] {
         guard let data = detailedPlaylist?.tracks.data else {return [TracksDatum]()}
         return data
     }
     init(service: NetworkService) {
         self.service = service
+    }
+    
+    func checkFavoriteStatus(id : Int) {
+        self.isFavorite = FavoritesManager.shared.isFavorite(id)
+        if FavoritesManager.shared.isFavorite(id) {
+            print("Bu playlist favori")
+        }else {
+            print("Favori değil")
+        }
     }
     
     func fetchPlaylistDetails(playlistId : Int) {

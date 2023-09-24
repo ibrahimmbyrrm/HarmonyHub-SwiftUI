@@ -6,7 +6,11 @@
 import Foundation
 
 // MARK: - Welcome
-struct DetailedPlaylist : Codable {
+struct DetailedPlaylist : Codable, Equatable {
+    static func == (lhs: DetailedPlaylist, rhs: DetailedPlaylist) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let id: Int
     let title, description: String
     let nbTracks, fans: Int
