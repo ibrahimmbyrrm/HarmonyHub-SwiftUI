@@ -56,6 +56,7 @@
 		806CC5C92ABDC68A0028EA4D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CC5C82ABDC68A0028EA4D /* HomeViewModel.swift */; };
 		808845702AC040FE00717DB2 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088456F2AC040FE00717DB2 /* AudioManager.swift */; };
 		808845722AC0410200717DB2 /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808845712AC0410200717DB2 /* TrackManager.swift */; };
+		808845742AC0425900717DB2 /* PlayPreviewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808845732AC0425900717DB2 /* PlayPreviewButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		806CC5C82ABDC68A0028EA4D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8088456F2AC040FE00717DB2 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		808845712AC0410200717DB2 /* TrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackManager.swift; sourceTree = "<group>"; };
+		808845732AC0425900717DB2 /* PlayPreviewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPreviewButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				8040DD532ABF24C5002E31AD /* MCImage.swift */,
+				808845732AC0425900717DB2 /* PlayPreviewButton.swift */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				806CC5982ABDB5FF0028EA4D /* EndPoints.swift in Sources */,
 				806CC59A2ABDB5FF0028EA4D /* HttpHelpers.swift in Sources */,
 				8040DD542ABF24C5002E31AD /* MCImage.swift in Sources */,
+				808845742AC0425900717DB2 /* PlayPreviewButton.swift in Sources */,
 				8040DD732ABF5344002E31AD /* AlbumTracksList.swift in Sources */,
 				8040DD512ABF1BA7002E31AD /* PlaylistDetailViewModel.swift in Sources */,
 				806CC5C92ABDC68A0028EA4D /* HomeViewModel.swift in Sources */,

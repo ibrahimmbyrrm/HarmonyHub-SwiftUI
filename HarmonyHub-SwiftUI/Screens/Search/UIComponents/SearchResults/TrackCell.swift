@@ -29,24 +29,9 @@ struct TrackCell: View {
                     .foregroundStyle(Color(uiColor: .lightGray))
             }
             Spacer()
-            Button(action: {
-                withAnimation {
-                    if tracksManager.isTrackPlaying(track) {
-                        soundManager.audioPlayer?.pause()
-                    } else {
-                        soundManager.playSound(sound: track.preview)
-                        soundManager.audioPlayer?.play()
-                    }
-                    tracksManager.playTrack(track)
-                }
-            }, label: {
-                Image(systemName: tracksManager.isTrackPlaying(track) ? "pause.fill" : "play.fill")
-                    .foregroundStyle(.indigo)
-            })
-            .padding()
+            PlayButton(track: self.track, soundManager: SoundManager.shared, tracksManager: TracksManager.shared)
         }
         .frame(height: 80)
         .background(Color.white)
     }
 }
-
