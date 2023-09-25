@@ -17,6 +17,7 @@ struct ArtistsAlbumCard: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .frame(width: 120, height: 120)
             Text(album.title)
+                .foregroundStyle(Color.label)
                 .font(.custom("ariel", size: 12))
                 .lineLimit(0)
                 .multilineTextAlignment(.center)

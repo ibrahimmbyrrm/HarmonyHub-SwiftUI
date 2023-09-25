@@ -23,7 +23,6 @@ struct HomeView: View {
                     ArtistChartGridView(tracks: viewModel.chart?.tracks.data)
                 }
             }
-            .background(Color.white)
             .navigationBarTitleDisplayMode(.large)
             .navigationTitle("HarmonyHub")
             

@@ -23,8 +23,9 @@ struct SearchResultList : View {
                         })
                     }
             }
-            
+            .scrollDismissesKeyboard(.interactively)
         }
+        
         
     }
 }

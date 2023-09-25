@@ -29,6 +29,7 @@
 		8040DD6E2ABF4FD7002E31AD /* AlbumDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8040DD6D2ABF4FD7002E31AD /* AlbumDetailViewModel.swift */; };
 		8040DD712ABF530A002E31AD /* AlbumNameAndOwnerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8040DD702ABF530A002E31AD /* AlbumNameAndOwnerStack.swift */; };
 		8040DD732ABF5344002E31AD /* AlbumTracksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8040DD722ABF5344002E31AD /* AlbumTracksList.swift */; };
+		80548A262AC10AF600660445 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80548A252AC10AF600660445 /* Color+Ext.swift */; };
 		806CC5822ABDB58C0028EA4D /* HarmonyHub_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CC5812ABDB58C0028EA4D /* HarmonyHub_SwiftUIApp.swift */; };
 		806CC5842ABDB58C0028EA4D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806CC5832ABDB58C0028EA4D /* HomeView.swift */; };
 		806CC5862ABDB5910028EA4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 806CC5852ABDB5910028EA4D /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		8040DD6D2ABF4FD7002E31AD /* AlbumDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewModel.swift; sourceTree = "<group>"; };
 		8040DD702ABF530A002E31AD /* AlbumNameAndOwnerStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumNameAndOwnerStack.swift; sourceTree = "<group>"; };
 		8040DD722ABF5344002E31AD /* AlbumTracksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTracksList.swift; sourceTree = "<group>"; };
+		80548A252AC10AF600660445 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		806CC57E2ABDB58C0028EA4D /* HarmonyHub-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HarmonyHub-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		806CC5812ABDB58C0028EA4D /* HarmonyHub_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyHub_SwiftUIApp.swift; sourceTree = "<group>"; };
 		806CC5832ABDB58C0028EA4D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				806CC5852ABDB5910028EA4D /* Assets.xcassets */,
 				806CC5872ABDB5910028EA4D /* Preview Content */,
 				8088457C2AC05E3A00717DB2 /* Array+Ext.swift */,
+				80548A252AC10AF600660445 /* Color+Ext.swift */,
 			);
 			path = "HarmonyHub-SwiftUI";
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				806CC5BA2ABDC0650028EA4D /* ArtistChartScrollView.swift in Sources */,
 				806CC5AB2ABDB6370028EA4D /* Playlist Model.swift in Sources */,
 				8040DD602ABF4611002E31AD /* ArtistDetailViewModel.swift in Sources */,
+				80548A262AC10AF600660445 /* Color+Ext.swift in Sources */,
 				8040DD6C2ABF4FD0002E31AD /* AlbumDetailView.swift in Sources */,
 				8040DD5E2ABF3FCA002E31AD /* ArtistDetailView.swift in Sources */,
 				8088457B2AC047D200717DB2 /* FavoritesViewModel.swift in Sources */,

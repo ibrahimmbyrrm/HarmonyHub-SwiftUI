@@ -18,7 +18,7 @@ struct ArtistCardView : View {
                 .frame(width: 70, height: 70)
                 .clipShape(Circle())
             Text(artist.name)
-                .foregroundStyle(.black)
+                .foregroundStyle(Color.label)
         }
         
     }

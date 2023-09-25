@@ -16,11 +16,11 @@ struct AlbumNameAndOwnerStack: View {
             VStack(alignment : .leading) {
                 Group {
                     Text(album?.title ?? "")
-                        .foregroundStyle(.black)
+                        .foregroundStyle(Color(uiColor: .label))
                     Text(album?.artist?.name ?? "")
                         .foregroundStyle(Color(uiColor: .darkGray))
                 }
-                .font(.custom("ariel", size: 18))
+                .font(.custom("ariel", size: 20))
                 
             }
             Spacer()

@@ -19,6 +19,7 @@ struct TrackCardView: View {
                     .frame(width: 180, height: 180)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                 Text(selectedTrack?.title ?? "")
+                    .foregroundStyle(Color.label)
                 Text(selectedTrack?.artist?.name ?? "")
                     .foregroundStyle(Color(uiColor: .lightGray))
                     .padding(.leading,3)

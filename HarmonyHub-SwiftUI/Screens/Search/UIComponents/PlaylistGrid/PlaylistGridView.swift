@@ -26,5 +26,6 @@ struct PlaylistGridView : View {
                 }
             }
         })
+        .scrollDismissesKeyboard(.immediately)
     }
 }

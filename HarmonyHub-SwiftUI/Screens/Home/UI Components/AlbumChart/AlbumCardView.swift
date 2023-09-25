@@ -19,7 +19,7 @@ struct AlbumCardView : View {
                 .clipShape(RoundedRectangle(cornerRadius: 20))
             Group {
                 Text(album.title)
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(Color.label)
                 Text(album.artist?.name ?? "")
                     .foregroundStyle(Color.init(uiColor: UIColor.lightGray))
             }

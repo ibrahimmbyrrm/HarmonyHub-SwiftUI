@@ -22,6 +22,7 @@ struct SearchView: View {
                     }
                 }
             }
+            .scrollDismissesKeyboard(.immediately)
             .navigationTitle("Let's Discover")
         }
         .searchable(text: $viewModel.searchText,prompt: Text("What do you want to listen"))

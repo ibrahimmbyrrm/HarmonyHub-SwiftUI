@@ -22,8 +22,8 @@ struct TrackCell: View {
                 .padding(.horizontal, 5)
             VStack(alignment: .leading, spacing: 8) {
                 Text(track.title)
+                    .foregroundStyle(Color.label)
                     .font(.custom("ariel", size: 18))
-                    .foregroundStyle(.black)
                 Text(track.artist?.name ?? "")
                     .font(.custom("ariel", size: 16))
                     .foregroundStyle(Color(uiColor: .lightGray))
@@ -32,6 +32,6 @@ struct TrackCell: View {
             PlayButton(track: self.track, soundManager: SoundManager.shared, tracksManager: TracksManager.shared)
         }
         .frame(height: 80)
-        .background(Color.white)
+        .background(Color(uiColor: .systemBackground))
     }
 }

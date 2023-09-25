@@ -16,7 +16,7 @@ struct HomeTitle : View {
             Text(title)
                 .padding()
                 .font(.custom("Rockwell", size: 30))
-                .foregroundStyle(.primary)
+                .foregroundStyle(Color.label)
             Spacer()
         }
     }
