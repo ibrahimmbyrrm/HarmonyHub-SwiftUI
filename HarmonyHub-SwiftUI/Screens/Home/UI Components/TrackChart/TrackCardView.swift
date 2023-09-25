@@ -20,11 +20,11 @@ struct TrackCardView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                 Text(selectedTrack?.title ?? "")
                     .foregroundStyle(Color.label)
-                Text(selectedTrack?.artist?.name ?? "")
+                Text(selectedTrack?.artist.name ?? "")
                     .foregroundStyle(Color(uiColor: .lightGray))
                     .padding(.leading,3)
             }
-            PlayButton(track: self.selectedTrack!, soundManager: SoundManager.shared, tracksManager: TracksManager.shared)
+            PlayButton(track: self.selectedTrack!, size: 15, soundManager: SoundManager.shared, tracksManager: TracksManager.shared)
                 .offset(x: -65.0, y: 40.0)
                 
         }

@@ -20,9 +20,9 @@ struct PlaylistInformationContainer: View {
                 Spacer()
                 Button(action: {
                     if isFavorite {
-                        FavoritesManager.shared.removeFavoritePlaylist(playlistID: playlist?.id ?? 0)
+                        FavoritesManager.shared.removeFromFavorites(.playlist(playlist?.id ?? 0), sender: .HeartButton)
                     } else {
-                        FavoritesManager.shared.addFavoritePlaylist(playlistID: playlist?.id ?? 0)
+                        FavoritesManager.shared.addToFavorites(.playlist(playlist?.id ?? 0))
                     }
                     isFavorite.toggle()
                 }, label: {

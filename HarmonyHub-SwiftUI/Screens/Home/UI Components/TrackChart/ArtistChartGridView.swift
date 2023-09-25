@@ -18,7 +18,13 @@ struct ArtistChartGridView: View {
     var body: some View {
         LazyVGrid(columns: columns, content: {
             ForEach(tracks ?? [TracksDatum](),id: \.id) { track in
-                TrackCardView(selectedTrack: track)
+                NavigationLink {
+                    TrackDetailView(selectedTrackID: track.id)
+                } label: {
+                    TrackCardView(selectedTrack: track)
+                }
+
+                
             }
         })
         .padding(.horizontal,5)

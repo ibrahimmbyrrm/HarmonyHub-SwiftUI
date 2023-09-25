@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct PlayButton: View {
-    var track: TracksDatum
+    var track: PreviewPlayable
+    var size : CGFloat
     @StateObject var soundManager: SoundManager
     @ObservedObject var tracksManager: TracksManager
-
+    
     var body: some View {
         Button(action: {
             withAnimation {
@@ -25,10 +26,12 @@ struct PlayButton: View {
             }
         }, label: {
             Image(systemName: tracksManager.isTrackPlaying(track) ? "pause.fill" : "play.fill")
+                .font(.system(size: size))
                 .foregroundStyle(.indigo)
                 .padding(7)
                 .background(Color.gray.opacity(0.5))
                 .clipShape(Circle())
+                
         })
         .padding()
     }

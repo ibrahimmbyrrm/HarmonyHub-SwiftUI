@@ -48,7 +48,7 @@ struct AlbumsDatum: Codable {
 // MARK: - ArtistElement
 struct ArtistElement: Codable {
     let id: Int
-    let name: String
+    var name: String
     let link, picture: String?
     let pictureSmall, pictureMedium, pictureBig, pictureXl: String?
     let radio: Bool?
@@ -167,22 +167,22 @@ struct Tracks: Codable {
 }
 
 // MARK: - TracksDatum
-struct TracksDatum: Codable, Equatable {
+struct TracksDatum: Codable, Equatable,TrackCellProperties {
     static func == (lhs: TracksDatum, rhs: TracksDatum) -> Bool {
         return lhs.id == rhs.id
     }
     
-    let id: Int
-    let title : String
+    var id: Int
+    var title : String
     let link: String?
     let duration, rank: Int?
     let explicitLyrics: Bool?
     let explicitContentLyrics, explicitContentCover: Int?
-    let preview: String
+    var preview: String
     let md5Image: String?
     let position: Int?
-    let artist: ArtistElement?
-    let album: Album
+    var artist: GeneralArtist
+    var album: GeneralAlbum
     let type: String?
 
     enum CodingKeys: String, CodingKey {
@@ -202,7 +202,7 @@ struct Album: Codable {
     let id: Int
     let title: String
     let cover: String?
-    let coverSmall, coverMedium, coverBig, coverXl: String
+    var coverSmall, coverMedium, coverBig, coverXl: String
     let md5Image: String?
     let tracklist: String?
 

@@ -21,8 +21,8 @@ final class PlaylistDetailViewModel : ObservableObject {
     }
     
     func checkFavoriteStatus(id : Int) {
-        self.isFavorite = FavoritesManager.shared.isFavorite(id)
-        if FavoritesManager.shared.isFavorite(id) {
+        self.isFavorite = FavoritesManager.shared.isFavorite(.playlist(id))
+        if FavoritesManager.shared.isFavorite(.playlist(id)) {
             print("Bu playlist favori")
         }else {
             print("Favori değil")

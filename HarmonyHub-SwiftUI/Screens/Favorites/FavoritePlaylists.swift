@@ -30,12 +30,19 @@ struct FavoritePlaylists: View {
                             icon: { Image(systemName: "music.note.list") }
                         )
                     }
-
- 
+                    
                     Section("Favorite Albums",isExpanded: $viewModel.isAlbumsSectionExpanded) {
                         
                     }
                     Section("Favorite Tracks",isExpanded: $viewModel.isTracksSectionExpanded) {
+                        ForEach(viewModel.favoriteTracks.removeDuplicates(),id: \.id) { track in
+                            NavigationLink {
+                                TrackDetailView(selectedTrackID: track.id)
+                            } label: {
+                                TrackCell(track: track)
+                            }
+
+                        }
                         
                     }
                     
@@ -46,6 +53,9 @@ struct FavoritePlaylists: View {
                     withAnimation {
                         viewModel.fetchFavorites()
                     }
+                }
+                .onReceive(NotificationCenter.default.publisher(for: Notification.Name("playlistRemoved"))) { _ in
+                    viewModel.resetData()
                 }
                 
             }

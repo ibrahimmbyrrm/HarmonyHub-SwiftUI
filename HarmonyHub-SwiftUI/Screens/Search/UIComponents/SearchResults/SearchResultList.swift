@@ -14,7 +14,7 @@ struct SearchResultList : View {
     var body: some View {
         VStack {
             ForEach(searchResults,id: \.id) { track in
-                TrackCell(track: track)
+                TrackCell(track: track as! TrackCellProperties)
                     .swipeActions() {
                         Button(action: {
                             

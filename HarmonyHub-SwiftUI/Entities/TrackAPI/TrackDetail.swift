@@ -14,25 +14,56 @@ import Foundation
 
 import Foundation
 
+protocol TrackCellProperties : PreviewPlayable {
+    var title : String {get set}
+    var album : GeneralAlbum {get set}
+    var artist : GeneralArtist {get set}
+}
+
+struct GeneralAlbum : Codable {
+    var id : Int
+    var coverBig,coverXl : String?
+    enum CodingKeys: String, CodingKey {
+        case id
+        case coverBig = "cover_big"
+        case coverXl = "cover_xl"
+    }
+}
+
+struct GeneralArtist : Codable {
+    var id : Int
+    var name : String
+    var pictureMedium : String?
+    
+    enum CodingKeys : String,CodingKey {
+        case id
+        case name
+        case pictureMedium = "picture_medium"
+    }
+}
+
 // MARK: - Welcome
-struct TrackDetail: Codable {
-    let id: Int
+struct TrackDetail: Codable,TrackCellProperties, Equatable {
+    static func == (lhs: TrackDetail, rhs: TrackDetail) -> Bool {
+        return lhs.id == rhs.id
+    }
+    var id: Int
     let readable: Bool
-    let title, titleShort, titleVersion, isrc: String
+    var title, titleShort, titleVersion, isrc: String
     let link, share: String
     let duration, trackPosition, diskNumber, rank: Int
     let releaseDate: String
     let explicitLyrics: Bool
     let explicitContentLyrics, explicitContentCover: Int
-    let preview: String
+    var preview: String
     let bpm, gain: Double
     let availableCountries: [String]
     let contributors: [TrackArtists]
     let md5Image: String
-    let artist: TrackArtists
-    let album: TrackAlbum
+    var artist: GeneralArtist
+    var album: GeneralAlbum
     let type: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id, readable, title
         case titleShort = "title_short"
@@ -58,11 +89,11 @@ struct TrackAlbum: Codable {
     let id: Int
     let title: String
     let link, cover: String
-    let coverSmall, coverMedium, coverBig, coverXl: String
+    var coverSmall, coverMedium, coverBig, coverXl: String
     let md5Image, releaseDate: String
     let tracklist: String
     let type: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id, title, link, cover
         case coverSmall = "cover_small"
@@ -85,7 +116,7 @@ struct TrackArtists: Codable {
     let tracklist: String
     let type: String
     let role: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, link, share, picture
         case pictureSmall = "picture_small"
@@ -96,3 +127,8 @@ struct TrackArtists: Codable {
     }
 }
 
+extension TrackDetail {
+    var typeAndDate : String {
+        return "\(self.type.capitalized) - \(self.releaseDate.prefix(4))"
+    }
+}
