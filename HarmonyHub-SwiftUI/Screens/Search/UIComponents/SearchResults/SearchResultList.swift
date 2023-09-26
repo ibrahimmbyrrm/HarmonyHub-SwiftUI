@@ -14,14 +14,20 @@ struct SearchResultList : View {
     var body: some View {
         VStack {
             ForEach(searchResults,id: \.id) { track in
-                TrackCell(track: track as! TrackCellProperties)
-                    .swipeActions() {
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Add To Playlist")
-                        })
-                    }
+                NavigationLink {
+                    TrackDetailView(selectedTrackID: track.id)
+                } label: {
+                    TrackCell(track: track)
+                        .swipeActions() {
+                            Button(action: {
+                                
+                            }, label: {
+                                Text("Add To Playlist")
+                            })
+                        }
+                }
+
+                
             }
             .scrollDismissesKeyboard(.interactively)
         }

@@ -16,6 +16,7 @@ final class AlbumDetailViewModel : ObservableObject {
     }
     
     @Published var albumDetail : BaseAlbum?
+    @Published var isFavorite = false
     
     func fetchAlbumDetails(albumId : Int) {
         service.fetchData(type: EndPointItems<BaseAlbum>.albumDetail(albumId)) { [weak self] result in
@@ -25,6 +26,10 @@ final class AlbumDetailViewModel : ObservableObject {
             case .failure(let error): print(error)
             }
         }
+    }
+    
+    func checkFavoriteStatus(id : Int) {
+        self.isFavorite = FavoritesManager.shared.isFavorite(.album(id))
     }
     
 }

@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct PlaylistListCell: View {
+struct CellWithoutPreview: View {
     
-    var playlist : DetailedPlaylist
+    var imageURL : String
+    var title : String
     
     var body: some View {
         HStack {
-            MCImage(urlString: playlist.pictureBig)
+            MCImage(urlString: imageURL)
                 .frame(width: 50,height: 50)
-            Text(playlist.title)
+            Text(title)
                 .font(.custom("ariel", size: 18))
                 .multilineTextAlignment(.leading)
             Spacer()

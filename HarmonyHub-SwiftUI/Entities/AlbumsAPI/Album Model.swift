@@ -14,7 +14,12 @@ import Foundation
 import Foundation
 
 // MARK: - BaseAlbum
-struct BaseAlbum: Codable {
+struct BaseAlbum: Codable,Equatable {
+    
+    static func == (lhs: BaseAlbum, rhs: BaseAlbum) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let id: Int
     let title: String
     let link, cover: String

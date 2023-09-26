@@ -18,7 +18,7 @@ struct AlbumDetailView: View {
                 VStack() {
                     MCImage(urlString: viewModel.albumDetail?.coverBig ?? "")
                         .frame(width: 300, height: 300)
-                    AlbumNameAndOwnerStack(album: viewModel.albumDetail)
+                    AlbumNameAndOwnerStack(album: viewModel.albumDetail, isFavorite: $viewModel.isFavorite)
                     AlbumTracksList(tracks: viewModel.albumDetail?.tracks?.data)
                 }
             }
@@ -27,6 +27,7 @@ struct AlbumDetailView: View {
         }
         .onAppear() {
             viewModel.fetchAlbumDetails(albumId: self.selectedalbumId)
+            viewModel.checkFavoriteStatus(id: selectedalbumId)
         }
     }
 }

@@ -32,6 +32,7 @@ class FavoritesManager : ObservableObject {
             if !trackIdList.contains(trackId) {
                 trackIdList.append(trackId)
                 saveFavoriteItems(.track(trackId))
+                print("Saved to array")
             }
         }
     }
@@ -42,26 +43,24 @@ class FavoritesManager : ObservableObject {
             if let index = playlistIdList.firstIndex(of: playlistId) {
                 playlistIdList.remove(at: index)
                 saveFavoriteItems(.playlist(playlistId))
-                print("Playlist removed from favorites -> \(playlistId)")
-                if sender == .HeartButton {
-                    NotificationCenter.default.post(name: NSNotification.Name("playlistRemoved"), object: nil)
-                }
             }
         case .album(let albumId):
             if let index = albumIdList.firstIndex(of: albumId) {
                 albumIdList.remove(at: index)
                 saveFavoriteItems(.album(albumId))
                 print("Album removed from favorites -> \(albumId)")
-                NotificationCenter.default.post(name: NSNotification.Name("albumRemoved"), object: nil)
             }
         case .track(let trackId):
             if let index = trackIdList.firstIndex(of: trackId) {
                 trackIdList.remove(at: index)
-                saveFavoriteItems(.album(trackId))
+                saveFavoriteItems(.track(trackId))
                 print("Track removed from favorites -> \(trackId)")
-                NotificationCenter.default.post(name: NSNotification.Name("trackRemoved"), object: nil)
             }
         }
+        if sender == .HeartButton {
+            NotificationCenter.default.post(name: NSNotification.Name("removed"), object: nil)
+        }
+        
     }
     //MARK: - Is Favorite Check
     func isFavorite(_ item : FavoriteItems) -> Bool {
@@ -107,6 +106,7 @@ class FavoritesManager : ObservableObject {
             getFavoritePlaylists(.playlist(0))
         case .track(_):
             userDefaults.set(trackIdList, forKey: item.userdefaultsKey)
+            print("Saved track  to userdafeult")
             getFavoritePlaylists(.track(0))
         }
     }

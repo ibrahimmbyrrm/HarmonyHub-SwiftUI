@@ -10,6 +10,7 @@ import SwiftUI
 struct AlbumNameAndOwnerStack: View {
     
     var album : BaseAlbum?
+    @Binding var isFavorite : Bool
     
     var body: some View {
         HStack {
@@ -24,11 +25,18 @@ struct AlbumNameAndOwnerStack: View {
                 
             }
             Spacer()
+            Button(action: {
+                if isFavorite {
+                    FavoritesManager.shared.removeFromFavorites(.album(album?.id ?? 0), sender: .HeartButton)
+                } else {
+                    FavoritesManager.shared.addToFavorites(.album(album?.id ?? 0))
+                }
+                isFavorite.toggle()
+            }, label: {
+                Image(systemName: isFavorite ? "heart.fill" : "heart")
+            })
         }
         .padding(.horizontal,10)
     }
 }
 
-#Preview {
-    AlbumNameAndOwnerStack()
-}

@@ -14,7 +14,11 @@ struct AlbumTracksList: View {
     var body: some View {
         VStack {
             ForEach(tracks ?? [TracksDatum](),id: \.id) { track in
+                NavigationLink {
+                    TrackDetailView(selectedTrackID: track.id)
+                } label: {
                     TrackCell(track: track)
+                }
             }
         }
     }

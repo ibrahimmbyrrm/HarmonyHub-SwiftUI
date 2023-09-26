@@ -29,6 +29,7 @@ struct HomeView: View {
         }
         .onAppear() {
             viewModel.fetchChart()
+            print(FavoritesManager.shared.trackIdList)
         }
     }
 }
