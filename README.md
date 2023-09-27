@@ -18,12 +18,16 @@ I have written the project entirely in accordance with the MVVM architecture. Da
 ✔️ Architecture free from code duplication(Reusable Components)
 ✔️ Custom AlertItem class for debugging
 ✔️ Constants file
-<h1>📦3rd Party Packages</h1><>
+<h1>📦3rd Party Packages</h1>
 ⭐️ Alamofire 
 ⭐️ Kingfisher 
 
 <h1>🔥 As a Result</h1>
-Completely testable, modular, and adaptable project has emerged. I would like to mention that I did not follow any videos or courses while creating this project, and it is entirely my own project.
+Completely testable, modular, and adaptable project has emerged. I would like to mention that I did not follow any videos or courses while creating this project, and it is entirely my own project.Here is a short video of app.Don't forget to open voice.
+
+
+
+https://github.com/ibrahimmbyrrm/HarmonyHub-SwiftUI/assets/96320314/f1971eac-cc34-4126-a343-d8b08ff2c739
 
 
 
