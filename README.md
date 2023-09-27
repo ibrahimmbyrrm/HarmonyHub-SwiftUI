@@ -1,5 +1,5 @@
 # HarmonyHub-SwiftUI
-HarmonyHub is here with brand new features.This is the updated version of my latest app HarmonyHub.It's powered by SwiftUI ! I built in 1 week this app.It means SwiftUI is 3x faster than UIKit
+HarmonyHub is here with brand new features.This is the updated version of my latest app HarmonyHub.It's powered by SwiftUI ! I built in 5 days this app.It means SwiftUI is 6x faster than UIKit
 
 <h1>🎬Overall</h1>
 HarmonyHub is an application that ensures users enjoy a rich and delightful music experience from every aspect. You can discover newly released albums, the most popular songs, specially curated playlists, and much more. You can search for and find any song you're looking for, listen to songs, and experience this unique journey without any limitations.Also I added "Favorites" feature to app.You can add your favorite albums,playlists and tracks to your Favorite List.
