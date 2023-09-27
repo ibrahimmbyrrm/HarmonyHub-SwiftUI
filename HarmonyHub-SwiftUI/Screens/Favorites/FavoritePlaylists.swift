@@ -75,13 +75,16 @@ struct FavoritePlaylists: View {
                     
                 }
                 .listStyle(.sidebar)
-                .navigationBarTitle("Favorites")
+                .navigationBarTitle(Constants.favoritesNavigationTitle)
                 .onAppear {
                     withAnimation {
                         viewModel.fetchFavorites()
                     }
                 }
-                .onReceive(NotificationCenter.default.publisher(for: Notification.Name("removed"))) { _ in
+                .alert(item: $viewModel.alertItem, content: { alert in
+                    Alert(title: alert.title, message: alert.description, dismissButton: alert.dismissButton)
+                })
+                .onReceive(NotificationCenter.default.publisher(for: Notification.Name(LocaleKeys.removeNotificationKey))) { _ in
                     viewModel.resetData()
                 }
                 

@@ -25,7 +25,7 @@ struct PlayButton: View {
                 tracksManager.playTrack(track)
             }
         }, label: {
-            Image(systemName: tracksManager.isTrackPlaying(track) ? "pause.fill" : "play.fill")
+            Image(systemName: tracksManager.isTrackPlaying(track) ? SFSymbols.pause : SFSymbols.play)
                 .font(.system(size: size))
                 .foregroundStyle(.indigo)
                 .padding(7)

@@ -22,9 +22,12 @@ struct AlbumDetailView: View {
                     AlbumTracksList(tracks: viewModel.albumDetail?.tracks?.data)
                 }
             }
-            .navigationTitle("Album")
+            .navigationTitle(Constants.albumNavigationTitle)
             .navigationBarTitleDisplayMode(.inline)
         }
+        .alert(item: $viewModel.alertItem, content: { alert in
+            Alert(title: alert.title, message: alert.description, dismissButton: alert.dismissButton)
+        })
         .onAppear() {
             viewModel.fetchAlbumDetails(albumId: self.selectedalbumId)
             viewModel.checkFavoriteStatus(id: selectedalbumId)

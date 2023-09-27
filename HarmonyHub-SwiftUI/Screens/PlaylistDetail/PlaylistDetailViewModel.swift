@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-final class PlaylistDetailViewModel : ObservableObject {
+final class PlaylistDetailViewModel : ObservableObject, AlertShowable {
     var service : NetworkService
     @Published var detailedPlaylist : DetailedPlaylist?
     @Published var isFavorite : Bool = false
-
+    @Published var alertItem: AlertItem?
     var trackList : [TracksDatum] {
         guard let data = detailedPlaylist?.tracks.data else {return [TracksDatum]()}
         return data
@@ -22,11 +22,6 @@ final class PlaylistDetailViewModel : ObservableObject {
     
     func checkFavoriteStatus(id : Int) {
         self.isFavorite = FavoritesManager.shared.isFavorite(.playlist(id))
-        if FavoritesManager.shared.isFavorite(.playlist(id)) {
-            print("Bu playlist favori")
-        }else {
-            print("Favori değil")
-        }
     }
     
     func fetchPlaylistDetails(playlistId : Int) {
@@ -35,7 +30,19 @@ final class PlaylistDetailViewModel : ObservableObject {
             case .success(let detailedPlaylist):
                 self.detailedPlaylist = detailedPlaylist
                 print(detailedPlaylist.id)
-            case .failure(let error): print(error)
+            case .failure(let error):
+                switch error {
+                case .invalidData:
+                    self.alertItem = AlertContext.invalidData
+                case .invalidResponse:
+                    self.alertItem = AlertContext.invalidResponse
+                case .parsingError:
+                    self.alertItem = AlertContext.unableToComplete
+                case .noConnection:
+                    self.alertItem = AlertContext.unableToComplete
+                default:
+                    self.alertItem = AlertContext.unableToComplete
+                }
             }
         }
     }

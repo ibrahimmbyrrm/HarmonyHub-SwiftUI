@@ -7,9 +7,9 @@
 import Foundation
 
 class FavoritesManager : ObservableObject {
+    
     static let shared = FavoritesManager()
     
-    private let favoritesKey = "FavoritePlaylists"
     private let userDefaults = UserDefaults.standard
     
     @Published var playlistIdList = [Int]()
@@ -32,7 +32,6 @@ class FavoritesManager : ObservableObject {
             if !trackIdList.contains(trackId) {
                 trackIdList.append(trackId)
                 saveFavoriteItems(.track(trackId))
-                print("Saved to array")
             }
         }
     }
@@ -48,17 +47,15 @@ class FavoritesManager : ObservableObject {
             if let index = albumIdList.firstIndex(of: albumId) {
                 albumIdList.remove(at: index)
                 saveFavoriteItems(.album(albumId))
-                print("Album removed from favorites -> \(albumId)")
             }
         case .track(let trackId):
             if let index = trackIdList.firstIndex(of: trackId) {
                 trackIdList.remove(at: index)
                 saveFavoriteItems(.track(trackId))
-                print("Track removed from favorites -> \(trackId)")
             }
         }
         if sender == .HeartButton {
-            NotificationCenter.default.post(name: NSNotification.Name("removed"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(LocaleKeys.removeNotificationKey), object: nil)
         }
         
     }
@@ -106,7 +103,6 @@ class FavoritesManager : ObservableObject {
             getFavoritePlaylists(.playlist(0))
         case .track(_):
             userDefaults.set(trackIdList, forKey: item.userdefaultsKey)
-            print("Saved track  to userdafeult")
             getFavoritePlaylists(.track(0))
         }
     }

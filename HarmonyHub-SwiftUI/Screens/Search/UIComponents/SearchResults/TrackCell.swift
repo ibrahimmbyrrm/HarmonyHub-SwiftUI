@@ -23,9 +23,9 @@ struct TrackCell: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(track.title)
                     .foregroundStyle(Color.label)
-                    .font(.custom("ariel", size: 18))
+                    .font(.custom(Fonts.ariel, size: 18))
                 Text(track.artist.name )
-                    .font(.custom("ariel", size: 16))
+                    .font(.custom(Fonts.ariel, size: 16))
                     .foregroundStyle(Color(uiColor: .lightGray))
             }
             Spacer()

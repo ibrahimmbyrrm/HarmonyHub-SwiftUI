@@ -22,7 +22,7 @@ struct TrackDetailButtonsStackView: View {
                 }
                 isFavorite.toggle()
             }, label: {
-                Image(systemName: isFavorite ? "heart.fill" : "heart")
+                Image(systemName: isFavorite ? SFSymbols.filledHeart : SFSymbols.heart)
                     .font(.system(size: 30))
             })
             .padding(.trailing)

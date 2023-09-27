@@ -17,10 +17,10 @@ struct FavoriteTrackCell: View {
                 .frame(width: 50,height: 50)
             VStack(alignment : .leading) {
                 Text(track.title)
-                    .font(.custom("ariel", size: 18))
+                    .font(.custom(Fonts.ariel, size: 18))
                     .multilineTextAlignment(.leading)
                 Text(track.artist.name)
-                    .font(.custom("ariel", size: 18))
+                    .font(.custom(Fonts.ariel, size: 18))
                     .foregroundStyle(.gray)
                     .multilineTextAlignment(.leading)
 

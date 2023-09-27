@@ -18,7 +18,7 @@ struct ArtistsAlbumCard: View {
                 .frame(width: 120, height: 120)
             Text(album.title)
                 .foregroundStyle(Color.label)
-                .font(.custom("ariel", size: 12))
+                .font(.custom(Fonts.ariel, size: 12))
                 .lineLimit(0)
                 .multilineTextAlignment(.center)
         }

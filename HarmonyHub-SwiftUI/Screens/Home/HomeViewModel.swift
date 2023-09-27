@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-@MainActor
-final class HomeViewModel : ObservableObject {
+final class HomeViewModel : ObservableObject, AlertShowable {
     
     var service : NetworkService
+    @Published var alertItem: AlertItem?
     
     init(service : NetworkService) {
         self.service = service
@@ -24,7 +24,18 @@ final class HomeViewModel : ObservableObject {
             case .success(let chart):
                 self.chart = chart
             case .failure(let error):
-                print(error)
+                switch error {
+                case .invalidData:
+                    self.alertItem = AlertContext.invalidData
+                case .invalidResponse:
+                    self.alertItem = AlertContext.invalidResponse
+                case .parsingError:
+                    self.alertItem = AlertContext.unableToComplete
+                case .noConnection:
+                    self.alertItem = AlertContext.unableToComplete
+                default:
+                    self.alertItem = AlertContext.unableToComplete
+                }
             }
         }
     }

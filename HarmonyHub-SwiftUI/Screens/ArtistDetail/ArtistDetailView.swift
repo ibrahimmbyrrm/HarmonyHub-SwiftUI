@@ -19,15 +19,18 @@ struct ArtistDetailView: View {
             ScrollView {
                 VStack {
                     ArtistDetailContainer(artistDetails: viewModel.artistDetails, trackCount: viewModel.tracks.count)
-                    HomeTitle(title: "Albums")
+                    HomeTitle(title: Constants.artistAlbumsTitle)
                     ArtistsAlbumsScrollView(albums: viewModel.albums)
-                    HomeTitle(title: "Tracks")
+                    HomeTitle(title: Constants.artistTracksTitle)
                     TracksListOfPlaylist(trackList: viewModel.tracks)
                 }
             }
-            .navigationTitle("Artist")
+            .navigationTitle(Constants.artistNavigationTitle)
             .navigationBarTitleDisplayMode(.inline)
         }
+        .alert(item: $viewModel.alertItem, content: { alert in
+            Alert(title: alert.title, message: alert.description, dismissButton: alert.dismissButton)
+        })
         .onAppear() {
             viewModel.fetchArtistDetails(artistID: self.selectedArtistId)
         }

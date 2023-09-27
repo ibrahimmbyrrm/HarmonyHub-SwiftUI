@@ -17,19 +17,21 @@ struct HomeView: View {
                 VStack {
                     TopButtons()
                     AlbumChartScrollView(albums: viewModel.chart?.albums.data)
-                    HomeTitle(title: "Artists")
+                    HomeTitle(title: Constants.homeArtistsTile)
                     ArtistChartScrollView(artists: viewModel.chart?.artists.data)
-                    HomeTitle(title: "Popular Tracks")
+                    HomeTitle(title: Constants.homeTracksTitle)
                     ArtistChartGridView(tracks: viewModel.chart?.tracks.data)
                 }
             }
             .navigationBarTitleDisplayMode(.large)
-            .navigationTitle("HarmonyHub")
+            .navigationTitle(Constants.homeNavigationTitle)
             
         }
+        .alert(item: $viewModel.alertItem, content: { alertItem in
+            Alert(title: alertItem.title, message: alertItem.description, dismissButton: alertItem.dismissButton)
+        })
         .onAppear() {
             viewModel.fetchChart()
-            print(FavoritesManager.shared.trackIdList)
         }
     }
 }

@@ -17,7 +17,7 @@ struct CellWithoutPreview: View {
             MCImage(urlString: imageURL)
                 .frame(width: 50,height: 50)
             Text(title)
-                .font(.custom("ariel", size: 18))
+                .font(.custom(Fonts.ariel, size: 18))
                 .multilineTextAlignment(.leading)
             Spacer()
         }

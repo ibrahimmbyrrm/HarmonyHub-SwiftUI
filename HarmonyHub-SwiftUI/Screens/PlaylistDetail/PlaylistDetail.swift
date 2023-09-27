@@ -23,9 +23,12 @@ struct PlaylistDetail: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Playlist")
+            .navigationTitle(Constants.playlistNavigationTitle)
             .padding(.top,10)
         }
+        .alert(item: $viewModel.alertItem, content: { alert in
+            Alert(title: alert.title, message: alert.description, dismissButton: alert.dismissButton)
+        })
         .onAppear() {
             viewModel.fetchPlaylistDetails(playlistId: self.selectedPlaylistId)
             viewModel.checkFavoriteStatus(id: self.selectedPlaylistId)

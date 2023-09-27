@@ -23,7 +23,6 @@ class TracksManager: ObservableObject {
         if currentlyPlayingTrack?.id == track.id {
             currentlyPlayingTrack = nil
         } else {
-            print("Farklı şarkı")
             currentlyPlayingTrack = track
         }
     }

@@ -15,7 +15,7 @@ struct HomeTitle : View {
         HStack {
             Text(title)
                 .padding()
-                .font(.custom("Rockwell", size: 30))
+                .font(.custom(Fonts.rockwell, size: 30))
                 .foregroundStyle(Color.label)
             Spacer()
         }

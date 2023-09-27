@@ -21,7 +21,7 @@ struct AlbumNameAndOwnerStack: View {
                     Text(album?.artist?.name ?? "")
                         .foregroundStyle(Color(uiColor: .darkGray))
                 }
-                .font(.custom("ariel", size: 20))
+                .font(.custom(Fonts.ariel, size: 20))
                 
             }
             Spacer()
@@ -33,7 +33,7 @@ struct AlbumNameAndOwnerStack: View {
                 }
                 isFavorite.toggle()
             }, label: {
-                Image(systemName: isFavorite ? "heart.fill" : "heart")
+                Image(systemName: isFavorite ? SFSymbols.filledHeart : SFSymbols.heart)
             })
         }
         .padding(.horizontal,10)

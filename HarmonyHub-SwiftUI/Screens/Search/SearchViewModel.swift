@@ -8,20 +8,24 @@
 import SwiftUI
 
 
-final class SearchViewModel : ObservableObject {
+final class SearchViewModel : ObservableObject, AlertShowable {
+    
+    
     var service : NetworkService
     
     init(service: NetworkService) {
         self.service = service
     }
     
-    private let searchDelay: TimeInterval = 0.5
+    private let searchDelay: TimeInterval = 0.6
     @State private var searchTimer: Timer?
     @Published var playlists : [PlaylistsDatum] = []
     @Published var searchResults : [TracksDatum] = []
     @Published var columns = [GridItem(.flexible()),GridItem(.flexible())]
     @Published var searchText : String = ""
     @Published var isSearching = false
+    
+    @Published var alertItem: AlertItem?
  
     
     func fetchPlaylists() {
@@ -30,7 +34,18 @@ final class SearchViewModel : ObservableObject {
             case .success(let playlists):
                 self.playlists = playlists.data
             case .failure(let error):
-                print(error)
+                switch error {
+                case .invalidData:
+                    self.alertItem = AlertContext.invalidData
+                case .invalidResponse:
+                    self.alertItem = AlertContext.invalidResponse
+                case .parsingError:
+                    self.alertItem = AlertContext.unableToComplete
+                case .noConnection:
+                    self.alertItem = AlertContext.unableToComplete
+                default:
+                    self.alertItem = AlertContext.unableToComplete
+                }
             }
         }
     }

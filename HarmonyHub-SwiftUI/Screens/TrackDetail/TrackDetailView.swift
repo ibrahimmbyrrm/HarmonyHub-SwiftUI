@@ -21,9 +21,12 @@ struct TrackDetailView: View {
                 Spacer()
                 ArtistInfoStackView(artist: viewModel.trackDetail?.artist)
             }
-            .navigationTitle("Track")
+            .navigationTitle(Constants.trackNavigationTitle)
             .navigationBarTitleDisplayMode(.inline)
         }
+        .alert(item: $viewModel.alertItem, content: { alert in
+            Alert(title: alert.title, message: alert.description, dismissButton: alert.dismissButton)
+        })
         .onAppear() {
             viewModel.fetchTrackDetails(id: self.selectedTrackID)
             viewModel.checkFavoriteStatus(id: self.selectedTrackID)

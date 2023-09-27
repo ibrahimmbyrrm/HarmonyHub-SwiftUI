@@ -14,11 +14,11 @@ struct TabBar: View {
     var body: some View {
         TabView {
             HomeView()
-                .tabItem { Label("Home", systemImage: "house") }
+                .tabItem { Label(TabBarLabels.homeTitle, systemImage: TabBarLabels.homeImage) }
             SearchView()
-                .tabItem { Label("Discover", systemImage: "magnifyingglass") }
+                .tabItem { Label(TabBarLabels.searchTitle, systemImage: TabBarLabels.searchImage) }
             FavoritePlaylists()
-                .tabItem { Label("Favorites", systemImage: "heart") }
+                .tabItem { Label(TabBarLabels.favoritesTitle, systemImage: TabBarLabels.favoritesImage) }
         }
     }
 }

@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-final class AlbumDetailViewModel : ObservableObject {
+final class AlbumDetailViewModel : ObservableObject,AlertShowable {
     
     var service : NetworkService
     
     init(service: NetworkService) {
         self.service = service
     }
-    
+    @Published var alertItem: AlertItem?
     @Published var albumDetail : BaseAlbum?
     @Published var isFavorite = false
     
@@ -23,7 +23,19 @@ final class AlbumDetailViewModel : ObservableObject {
             guard let self else {return}
             switch result {
             case .success(let album): self.albumDetail = album
-            case .failure(let error): print(error)
+            case .failure(let error):
+                switch error {
+                case .invalidData:
+                    self.alertItem = AlertContext.invalidData
+                case .invalidResponse:
+                    self.alertItem = AlertContext.invalidResponse
+                case .parsingError:
+                    self.alertItem = AlertContext.unableToComplete
+                case .noConnection:
+                    self.alertItem = AlertContext.unableToComplete
+                default:
+                    self.alertItem = AlertContext.unableToComplete
+                }
             }
         }
     }

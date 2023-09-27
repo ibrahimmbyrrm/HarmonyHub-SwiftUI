@@ -25,11 +25,11 @@ extension FavoriteItems : FavoriteType {
     var userdefaultsKey: String {
         switch self {
         case .playlist(_):
-            "FavoritePlaylists"
+            LocaleKeys.userDefaultsPlaylistKey
         case .album(_):
-            "FavoriteAlbums"
+            LocaleKeys.userDefaultsAlbumKey
         case .track(_):
-            "FavoriteTracks"
+            LocaleKeys.userDefaultsTrackKey
         }
     }
 }

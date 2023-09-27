@@ -13,13 +13,10 @@ struct HeaderTitle: View {
     
     var body: some View {
         Text(title)
-            .font(.custom("ariel", size: 16))
+            .font(.custom(Fonts.ariel, size: 16))
             .foregroundStyle(.indigo)
             .italic()
         
     }
 }
 
-#Preview {
-    HeaderTitle(title: "Favorite Playlists")
-}

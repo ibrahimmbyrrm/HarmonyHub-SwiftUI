@@ -70,6 +70,8 @@
 		8088457D2AC05E3A00717DB2 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088457C2AC05E3A00717DB2 /* Array+Ext.swift */; };
 		8088457F2AC0FABC00717DB2 /* CellWithoutPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088457E2AC0FABC00717DB2 /* CellWithoutPreview.swift */; };
 		808845812AC102FB00717DB2 /* HeaderTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808845802AC102FB00717DB2 /* HeaderTitle.swift */; };
+		80C7E4552AC4425E00E321E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7E4542AC4425E00E321E6 /* Constants.swift */; };
+		80C7E4572AC446E600E321E6 /* AlertContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7E4562AC446E600E321E6 /* AlertContexts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +137,8 @@
 		8088457C2AC05E3A00717DB2 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		8088457E2AC0FABC00717DB2 /* CellWithoutPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellWithoutPreview.swift; sourceTree = "<group>"; };
 		808845802AC102FB00717DB2 /* HeaderTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTitle.swift; sourceTree = "<group>"; };
+		80C7E4542AC4425E00E321E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../../../../Constants.swift; sourceTree = "<group>"; };
+		80C7E4562AC446E600E321E6 /* AlertContexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContexts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +332,7 @@
 		806CC5802ABDB58C0028EA4D /* HarmonyHub-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				80C7E4522AC4424B00E321E6 /* Utils */,
 				8040DD522ABF24B5002E31AD /* Reusable Components */,
 				806CC5AE2ABDB6410028EA4D /* Screens */,
 				806CC59E2ABDB6360028EA4D /* Entities */,
@@ -335,8 +340,6 @@
 				806CC5812ABDB58C0028EA4D /* HarmonyHub_SwiftUIApp.swift */,
 				806CC5852ABDB5910028EA4D /* Assets.xcassets */,
 				806CC5872ABDB5910028EA4D /* Preview Content */,
-				8088457C2AC05E3A00717DB2 /* Array+Ext.swift */,
-				80548A252AC10AF600660445 /* Color+Ext.swift */,
 			);
 			path = "HarmonyHub-SwiftUI";
 			sourceTree = "<group>";
@@ -513,13 +516,40 @@
 		808845772AC047B000717DB2 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				80C7E4512AC441D600E321E6 /* UI Components */,
 				808845782AC047BC00717DB2 /* FavoritePlaylists.swift */,
 				8088457A2AC047D200717DB2 /* FavoritesViewModel.swift */,
-				8088457E2AC0FABC00717DB2 /* CellWithoutPreview.swift */,
-				808845802AC102FB00717DB2 /* HeaderTitle.swift */,
-				80835E342AC2DC3300B2652A /* FavoriteTrackCell.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		80C7E4512AC441D600E321E6 /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				80835E342AC2DC3300B2652A /* FavoriteTrackCell.swift */,
+				808845802AC102FB00717DB2 /* HeaderTitle.swift */,
+				8088457E2AC0FABC00717DB2 /* CellWithoutPreview.swift */,
+			);
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
+		80C7E4522AC4424B00E321E6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				80C7E4532AC4425000E321E6 /* Extensions */,
+				80C7E4542AC4425E00E321E6 /* Constants.swift */,
+				80C7E4562AC446E600E321E6 /* AlertContexts.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		80C7E4532AC4425000E321E6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				80548A252AC10AF600660445 /* Color+Ext.swift */,
+				8088457C2AC05E3A00717DB2 /* Array+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -603,6 +633,7 @@
 				8088457D2AC05E3A00717DB2 /* Array+Ext.swift in Sources */,
 				8040DD592ABF277D002E31AD /* TracksListOfPlaylist.swift in Sources */,
 				8040DD572ABF26C8002E31AD /* PlaylistInformationConstainer.swift in Sources */,
+				80C7E4572AC446E600E321E6 /* AlertContexts.swift in Sources */,
 				8040DD4F2ABF19CC002E31AD /* PlaylistDetail.swift in Sources */,
 				806CC5B82ABDC0390028EA4D /* AlbumChartScrollView.swift in Sources */,
 				806CC5992ABDB5FF0028EA4D /* NetworkManager.swift in Sources */,
@@ -635,6 +666,7 @@
 				806CC5842ABDB58C0028EA4D /* HomeView.swift in Sources */,
 				8040DD392ABEF8EA002E31AD /* SearchView.swift in Sources */,
 				8033BDC02AC19E6000C5F003 /* ArtistInfoStackView.swift in Sources */,
+				80C7E4552AC4425E00E321E6 /* Constants.swift in Sources */,
 				806CC5BE2ABDC1060028EA4D /* TrackCardView.swift in Sources */,
 				8040DD622ABF4BA3002E31AD /* ArtistStats.swift in Sources */,
 				806CC5AD2ABDB6370028EA4D /* ChartModel.swift in Sources */,

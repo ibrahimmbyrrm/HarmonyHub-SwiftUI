@@ -16,7 +16,7 @@ struct PlaylistInformationContainer: View {
         VStack {
             HStack {
                 Text(playlist?.title ?? "")
-                    .font(.custom("ariel", size: 24))
+                    .font(.custom(Fonts.ariel, size: 24))
                 Spacer()
                 Button(action: {
                     if isFavorite {
@@ -26,7 +26,7 @@ struct PlaylistInformationContainer: View {
                     }
                     isFavorite.toggle()
                 }, label: {
-                    Image(systemName: isFavorite ? "heart.fill" : "heart")
+                    Image(systemName: isFavorite ? SFSymbols.filledHeart : SFSymbols.heart)
                 })
             }
             .padding(.horizontal)
@@ -34,7 +34,7 @@ struct PlaylistInformationContainer: View {
             HStack {
                 Text(playlist?.description ?? "")
                     .foregroundStyle(Color(uiColor: .lightGray))
-                    .font(.custom("ariel", size: 16))
+                    .font(.custom(Fonts.ariel, size: 16))
                 Spacer()
             }
             .padding(.top, 5)

@@ -23,9 +23,12 @@ struct SearchView: View {
                 }
             }
             .scrollDismissesKeyboard(.immediately)
-            .navigationTitle("Let's Discover")
+            .navigationTitle(Constants.searchNavigationTitle)
         }
-        .searchable(text: $viewModel.searchText,prompt: Text("What do you want to listen"))
+        .alert(item: $viewModel.alertItem, content: { alert in
+            Alert(title: alert.title, message: alert.description, dismissButton: alert.dismissButton)
+        })
+        .searchable(text: $viewModel.searchText,prompt: Text(Constants.searchBarPlaceholder))
         .onAppear() {
             viewModel.fetchPlaylists()
         }

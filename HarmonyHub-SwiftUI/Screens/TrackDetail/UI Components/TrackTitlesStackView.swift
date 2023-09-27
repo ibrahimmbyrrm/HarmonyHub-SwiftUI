@@ -16,13 +16,13 @@ struct TrackTitlesStackView : View {
         HStack {
             VStack(alignment : .leading,spacing: 5) {
                 Text(track?.title ?? "")
-                    .font(.custom("ariel", size: 24))
+                    .font(.custom(Fonts.ariel, size: 24))
                     .foregroundStyle(Color.label)
                 Text(track?.artist.name ?? "")
-                    .font(.custom("ariel", size: 20))
+                    .font(.custom(Fonts.ariel, size: 20))
                     .foregroundStyle(Color.label)
                 Text(track?.typeAndDate ?? "")
-                    .font(.custom("ariel", size: 16))
+                    .font(.custom(Fonts.ariel, size: 16))
                     .foregroundStyle(.gray)
             }
             .padding()

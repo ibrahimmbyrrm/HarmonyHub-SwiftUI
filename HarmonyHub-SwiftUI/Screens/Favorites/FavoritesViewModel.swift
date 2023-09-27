@@ -8,13 +8,14 @@
 import Foundation
 import Alamofire
 
-final class FavoritesViewModel : ObservableObject {
+final class FavoritesViewModel : ObservableObject, AlertShowable {
     
     var service : NetworkService
     
     init(service: NetworkService) {
         self.service = service
     }
+    @Published var alertItem: AlertItem?
     @Published var isPlaylistSectionExpanded = true
     @Published var isTracksSectionExpanded = true
     @Published var isAlbumsSectionExpanded = true
@@ -28,7 +29,19 @@ final class FavoritesViewModel : ObservableObject {
             service.fetchData(type: EndPointItems<DetailedPlaylist>.playlistDetail(id)) { result in
                 switch result {
                 case .success(let playlist): self.favoritePlaylists.append(playlist)
-                case .failure(let error) : print(error)
+                case .failure(let error):
+                    switch error {
+                    case .invalidData:
+                        self.alertItem = AlertContext.invalidData
+                    case .invalidResponse:
+                        self.alertItem = AlertContext.invalidResponse
+                    case .parsingError:
+                        self.alertItem = AlertContext.unableToComplete
+                    case .noConnection:
+                        self.alertItem = AlertContext.unableToComplete
+                    default:
+                        self.alertItem = AlertContext.unableToComplete
+                    }
                 }
             }
         }
@@ -37,7 +50,19 @@ final class FavoritesViewModel : ObservableObject {
             service.fetchData(type: EndPointItems<TrackDetail>.trackDetail(id)) { result in
                 switch result {
                 case .success(let track): self.favoriteTracks.append(track)
-                case .failure(let error) : print(error)
+                case .failure(let error) :
+                    switch error {
+                    case .invalidData:
+                        self.alertItem = AlertContext.invalidData
+                    case .invalidResponse:
+                        self.alertItem = AlertContext.invalidResponse
+                    case .parsingError:
+                        self.alertItem = AlertContext.unableToComplete
+                    case .noConnection:
+                        self.alertItem = AlertContext.unableToComplete
+                    default:
+                        self.alertItem = AlertContext.unableToComplete
+                    }
                 }
             }
         }
@@ -46,7 +71,19 @@ final class FavoritesViewModel : ObservableObject {
             service.fetchData(type: EndPointItems<BaseAlbum>.albumDetail(id)) { result in
                 switch result {
                 case .success(let baseAlbum): self.favoriteAlbums.append(baseAlbum)
-                case .failure(let error): print(error)
+                case .failure(let error):
+                    switch error {
+                    case .invalidData:
+                        self.alertItem = AlertContext.invalidData
+                    case .invalidResponse:
+                        self.alertItem = AlertContext.invalidResponse
+                    case .parsingError:
+                        self.alertItem = AlertContext.unableToComplete
+                    case .noConnection:
+                        self.alertItem = AlertContext.unableToComplete
+                    default:
+                        self.alertItem = AlertContext.unableToComplete
+                    }
                 }
             }
         }
