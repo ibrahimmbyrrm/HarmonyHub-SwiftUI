@@ -71,7 +71,6 @@ class FavoritesManager : ObservableObject {
     
     private func isFavorite(_ id : Int,list : [Int]) -> Bool {
         for i in list {
-            print("\(i) -- \(id) ")
             if i == id {
                 return true
             }else {

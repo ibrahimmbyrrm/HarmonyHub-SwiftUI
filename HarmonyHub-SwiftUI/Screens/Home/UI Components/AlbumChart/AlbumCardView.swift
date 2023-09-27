@@ -25,6 +25,7 @@ struct AlbumCardView : View {
             }
             .padding(.leading,3)
         }
+        .frame(width: 170, height: 210)
         
     }
 }

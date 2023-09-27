@@ -70,8 +70,8 @@
 		8088457D2AC05E3A00717DB2 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088457C2AC05E3A00717DB2 /* Array+Ext.swift */; };
 		8088457F2AC0FABC00717DB2 /* CellWithoutPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088457E2AC0FABC00717DB2 /* CellWithoutPreview.swift */; };
 		808845812AC102FB00717DB2 /* HeaderTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808845802AC102FB00717DB2 /* HeaderTitle.swift */; };
-		80C7E4552AC4425E00E321E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7E4542AC4425E00E321E6 /* Constants.swift */; };
 		80C7E4572AC446E600E321E6 /* AlertContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7E4562AC446E600E321E6 /* AlertContexts.swift */; };
+		80C7E4592AC4577B00E321E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7E4582AC4577B00E321E6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,8 +137,8 @@
 		8088457C2AC05E3A00717DB2 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		8088457E2AC0FABC00717DB2 /* CellWithoutPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellWithoutPreview.swift; sourceTree = "<group>"; };
 		808845802AC102FB00717DB2 /* HeaderTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTitle.swift; sourceTree = "<group>"; };
-		80C7E4542AC4425E00E321E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../../../../Constants.swift; sourceTree = "<group>"; };
 		80C7E4562AC446E600E321E6 /* AlertContexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContexts.swift; sourceTree = "<group>"; };
+		80C7E4582AC4577B00E321E6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -537,7 +537,7 @@
 			isa = PBXGroup;
 			children = (
 				80C7E4532AC4425000E321E6 /* Extensions */,
-				80C7E4542AC4425E00E321E6 /* Constants.swift */,
+				80C7E4582AC4577B00E321E6 /* Constants.swift */,
 				80C7E4562AC446E600E321E6 /* AlertContexts.swift */,
 			);
 			path = Utils;
@@ -639,6 +639,7 @@
 				806CC5992ABDB5FF0028EA4D /* NetworkManager.swift in Sources */,
 				8040DD6E2ABF4FD7002E31AD /* AlbumDetailViewModel.swift in Sources */,
 				8033BDB22AC1924800C5F003 /* FavoritesUserDefaultsManager.swift in Sources */,
+				80C7E4592AC4577B00E321E6 /* Constants.swift in Sources */,
 				806CC5AA2ABDB6370028EA4D /* ArtistData.swift in Sources */,
 				8033BDB82AC1934000C5F003 /* TrackDetailView.swift in Sources */,
 				806CC5B12ABDB7FA0028EA4D /* AlbumCardView.swift in Sources */,
@@ -666,7 +667,6 @@
 				806CC5842ABDB58C0028EA4D /* HomeView.swift in Sources */,
 				8040DD392ABEF8EA002E31AD /* SearchView.swift in Sources */,
 				8033BDC02AC19E6000C5F003 /* ArtistInfoStackView.swift in Sources */,
-				80C7E4552AC4425E00E321E6 /* Constants.swift in Sources */,
 				806CC5BE2ABDC1060028EA4D /* TrackCardView.swift in Sources */,
 				8040DD622ABF4BA3002E31AD /* ArtistStats.swift in Sources */,
 				806CC5AD2ABDB6370028EA4D /* ChartModel.swift in Sources */,
