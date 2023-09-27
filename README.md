@@ -4,7 +4,9 @@ HarmonyHub is here with brand new features.This is the updated version of my lat
 ⭐️ Favorites Screen -> You can add playlists, albums and tracks to your favorite list.These are stored in userdefaults <br>
 ⭐️ Animations -> I have added some scroll animations with SwiftUI<br>
 ⭐️ More Basic AudioManager -> AudioManager is more readable and easy to use now.<br>
-⭐️ Debug Alerts -> If there are some errors, now you can see the problem in alerts.
+⭐️ Debug Alerts -> If there are some errors, now you can see the problem in alerts.<br>
+⭐️ Dark and Light Mode configuration -> The application's interface is now compatible for dark and light modes.<br>
+⭐️ Smaller App Size -> Thanks to SwiftUI, the apps size is %40 smaller than UIKit version.
 
 <h1>🎬Overall</h1>
 HarmonyHub is an application that ensures users enjoy a rich and delightful music experience from every aspect. You can discover newly released albums, the most popular songs, specially curated playlists, and much more. You can search for and find any song you're looking for, listen to songs, and experience this unique journey without any limitations.Also I added "Favorites" feature to app.You can add your favorite albums,playlists and tracks to your Favorite List.
