@@ -11,7 +11,6 @@ import Alamofire
 final class FavoritesViewModel : ObservableObject, AlertShowable {
     
     var service : NetworkService
-    
     init(service: NetworkService) {
         self.service = service
     }
@@ -23,25 +22,28 @@ final class FavoritesViewModel : ObservableObject, AlertShowable {
     @Published var favoriteTracks = [TrackDetail]()
     @Published var favoriteAlbums = [BaseAlbum]()
     
+    func handleNetworkError(_ error: httpError) {
+        switch error {
+        case .invalidData:
+            self.alertItem = AlertContext.invalidData
+        case .invalidResponse:
+            self.alertItem = AlertContext.invalidResponse
+        case .parsingError:
+            self.alertItem = AlertContext.unableToComplete
+        case .noConnection:
+            self.alertItem = AlertContext.unableToComplete
+        default:
+            self.alertItem = AlertContext.unableToComplete
+        }
+    }
+    
     func fetchFavorites() {
         FavoritesManager.shared.getFavoritePlaylists(.playlist(0))
         for id in FavoritesManager.shared.playlistIdList {
             service.fetchData(type: EndPointItems<DetailedPlaylist>.playlistDetail(id)) { result in
                 switch result {
                 case .success(let playlist): self.favoritePlaylists.append(playlist)
-                case .failure(let error):
-                    switch error {
-                    case .invalidData:
-                        self.alertItem = AlertContext.invalidData
-                    case .invalidResponse:
-                        self.alertItem = AlertContext.invalidResponse
-                    case .parsingError:
-                        self.alertItem = AlertContext.unableToComplete
-                    case .noConnection:
-                        self.alertItem = AlertContext.unableToComplete
-                    default:
-                        self.alertItem = AlertContext.unableToComplete
-                    }
+                case .failure(let error): self.handleNetworkError(error)
                 }
             }
         }
@@ -50,19 +52,7 @@ final class FavoritesViewModel : ObservableObject, AlertShowable {
             service.fetchData(type: EndPointItems<TrackDetail>.trackDetail(id)) { result in
                 switch result {
                 case .success(let track): self.favoriteTracks.append(track)
-                case .failure(let error) :
-                    switch error {
-                    case .invalidData:
-                        self.alertItem = AlertContext.invalidData
-                    case .invalidResponse:
-                        self.alertItem = AlertContext.invalidResponse
-                    case .parsingError:
-                        self.alertItem = AlertContext.unableToComplete
-                    case .noConnection:
-                        self.alertItem = AlertContext.unableToComplete
-                    default:
-                        self.alertItem = AlertContext.unableToComplete
-                    }
+                case .failure(let error) : self.handleNetworkError(error)
                 }
             }
         }
@@ -71,19 +61,7 @@ final class FavoritesViewModel : ObservableObject, AlertShowable {
             service.fetchData(type: EndPointItems<BaseAlbum>.albumDetail(id)) { result in
                 switch result {
                 case .success(let baseAlbum): self.favoriteAlbums.append(baseAlbum)
-                case .failure(let error):
-                    switch error {
-                    case .invalidData:
-                        self.alertItem = AlertContext.invalidData
-                    case .invalidResponse:
-                        self.alertItem = AlertContext.invalidResponse
-                    case .parsingError:
-                        self.alertItem = AlertContext.unableToComplete
-                    case .noConnection:
-                        self.alertItem = AlertContext.unableToComplete
-                    default:
-                        self.alertItem = AlertContext.unableToComplete
-                    }
+                case .failure(let error): self.handleNetworkError(error)
                 }
             }
         }

@@ -28,7 +28,7 @@ struct TrackDetailView: View {
             Alert(title: alert.title, message: alert.description, dismissButton: alert.dismissButton)
         })
         .onAppear() {
-            viewModel.fetchTrackDetails(id: self.selectedTrackID)
+            viewModel.fetchData(id: self.selectedTrackID)
             viewModel.checkFavoriteStatus(id: self.selectedTrackID)
         }
     }

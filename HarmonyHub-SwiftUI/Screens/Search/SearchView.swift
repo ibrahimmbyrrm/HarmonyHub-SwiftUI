@@ -30,7 +30,7 @@ struct SearchView: View {
         })
         .searchable(text: $viewModel.searchText,prompt: Text(Constants.searchBarPlaceholder))
         .onAppear() {
-            viewModel.fetchPlaylists()
+            viewModel.fetchData(id: nil)
         }
         .onChange(of: viewModel.searchText) { _, _ in
             viewModel.fetchSearchResults()

@@ -29,7 +29,7 @@ struct AlbumDetailView: View {
             Alert(title: alert.title, message: alert.description, dismissButton: alert.dismissButton)
         })
         .onAppear() {
-            viewModel.fetchAlbumDetails(albumId: self.selectedalbumId)
+            viewModel.fetchData(id: self.selectedalbumId)
             viewModel.checkFavoriteStatus(id: selectedalbumId)
         }
     }

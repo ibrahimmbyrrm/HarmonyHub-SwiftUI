@@ -30,8 +30,12 @@ struct HomeView: View {
         .alert(item: $viewModel.alertItem, content: { alertItem in
             Alert(title: alertItem.title, message: alertItem.description, dismissButton: alertItem.dismissButton)
         })
+        .redacted(reason: viewModel.isLoading ? .placeholder : .privacy)
         .onAppear() {
-            viewModel.fetchChart()
+            viewModel.fetchData(id: nil)
+        }
+        .refreshable {
+            viewModel.fetchData(id: nil)
         }
     }
 }

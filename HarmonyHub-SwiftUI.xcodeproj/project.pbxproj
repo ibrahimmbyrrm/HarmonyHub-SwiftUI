@@ -70,6 +70,7 @@
 		8088457D2AC05E3A00717DB2 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088457C2AC05E3A00717DB2 /* Array+Ext.swift */; };
 		8088457F2AC0FABC00717DB2 /* CellWithoutPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088457E2AC0FABC00717DB2 /* CellWithoutPreview.swift */; };
 		808845812AC102FB00717DB2 /* HeaderTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808845802AC102FB00717DB2 /* HeaderTitle.swift */; };
+		80C5372A2AC833BE001FF4A0 /* NetworkFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C537292AC833BE001FF4A0 /* NetworkFetchable.swift */; };
 		80C7E4572AC446E600E321E6 /* AlertContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7E4562AC446E600E321E6 /* AlertContexts.swift */; };
 		80C7E4592AC4577B00E321E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7E4582AC4577B00E321E6 /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -137,6 +138,7 @@
 		8088457C2AC05E3A00717DB2 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		8088457E2AC0FABC00717DB2 /* CellWithoutPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellWithoutPreview.swift; sourceTree = "<group>"; };
 		808845802AC102FB00717DB2 /* HeaderTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTitle.swift; sourceTree = "<group>"; };
+		80C537292AC833BE001FF4A0 /* NetworkFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFetchable.swift; sourceTree = "<group>"; };
 		80C7E4562AC446E600E321E6 /* AlertContexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContexts.swift; sourceTree = "<group>"; };
 		80C7E4582AC4577B00E321E6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -260,6 +262,7 @@
 			children = (
 				8040DD532ABF24C5002E31AD /* MCImage.swift */,
 				808845732AC0425900717DB2 /* PlayPreviewButton.swift */,
+				80C537292AC833BE001FF4A0 /* NetworkFetchable.swift */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				8040DD732ABF5344002E31AD /* AlbumTracksList.swift in Sources */,
 				8040DD512ABF1BA7002E31AD /* PlaylistDetailViewModel.swift in Sources */,
 				806CC5C92ABDC68A0028EA4D /* HomeViewModel.swift in Sources */,
+				80C5372A2AC833BE001FF4A0 /* NetworkFetchable.swift in Sources */,
 				8040DD652ABF4CC6002E31AD /* ArtistDetailContainer.swift in Sources */,
 				806CC5A92ABDB6370028EA4D /* Album Model.swift in Sources */,
 				806CC5822ABDB58C0028EA4D /* HarmonyHub_SwiftUIApp.swift in Sources */,

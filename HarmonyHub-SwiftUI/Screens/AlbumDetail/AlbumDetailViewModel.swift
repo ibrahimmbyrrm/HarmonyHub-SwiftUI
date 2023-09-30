@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class AlbumDetailViewModel : ObservableObject,AlertShowable {
+final class AlbumDetailViewModel : ObservableObject,AlertShowable,NetworkFetchable {
     
     var service : NetworkService
     
@@ -18,25 +18,29 @@ final class AlbumDetailViewModel : ObservableObject,AlertShowable {
     @Published var albumDetail : BaseAlbum?
     @Published var isFavorite = false
     
-    func fetchAlbumDetails(albumId : Int) {
+    func fetchData(id: Int?) {
+        guard let albumId = id else {return}
         service.fetchData(type: EndPointItems<BaseAlbum>.albumDetail(albumId)) { [weak self] result in
             guard let self else {return}
             switch result {
             case .success(let album): self.albumDetail = album
-            case .failure(let error):
-                switch error {
-                case .invalidData:
-                    self.alertItem = AlertContext.invalidData
-                case .invalidResponse:
-                    self.alertItem = AlertContext.invalidResponse
-                case .parsingError:
-                    self.alertItem = AlertContext.unableToComplete
-                case .noConnection:
-                    self.alertItem = AlertContext.unableToComplete
-                default:
-                    self.alertItem = AlertContext.unableToComplete
-                }
+            case .failure(let error): self.handleNetworkError(error)
             }
+        }
+    }
+    
+    func handleNetworkError(_ error: httpError) {
+        switch error {
+        case .invalidData:
+            self.alertItem = AlertContext.invalidData
+        case .invalidResponse:
+            self.alertItem = AlertContext.invalidResponse
+        case .parsingError:
+            self.alertItem = AlertContext.unableToComplete
+        case .noConnection:
+            self.alertItem = AlertContext.unableToComplete
+        default:
+            self.alertItem = AlertContext.unableToComplete
         }
     }
     

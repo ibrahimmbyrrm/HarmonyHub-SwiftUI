@@ -30,7 +30,7 @@ struct PlaylistDetail: View {
             Alert(title: alert.title, message: alert.description, dismissButton: alert.dismissButton)
         })
         .onAppear() {
-            viewModel.fetchPlaylistDetails(playlistId: self.selectedPlaylistId)
+            viewModel.fetchData(id: self.selectedPlaylistId)
             viewModel.checkFavoriteStatus(id: self.selectedPlaylistId)
         }
     }

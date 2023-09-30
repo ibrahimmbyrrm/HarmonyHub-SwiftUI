@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class PlaylistDetailViewModel : ObservableObject, AlertShowable {
+final class PlaylistDetailViewModel : ObservableObject, AlertShowable,NetworkFetchable {
     var service : NetworkService
     @Published var detailedPlaylist : DetailedPlaylist?
     @Published var isFavorite : Bool = false
@@ -23,27 +23,31 @@ final class PlaylistDetailViewModel : ObservableObject, AlertShowable {
     func checkFavoriteStatus(id : Int) {
         self.isFavorite = FavoritesManager.shared.isFavorite(.playlist(id))
     }
-    
-    func fetchPlaylistDetails(playlistId : Int) {
+    func fetchData(id: Int?) {
+        guard let playlistId = id else {return}
         service.fetchData(type: EndPointItems<DetailedPlaylist>.playlistDetail(playlistId)) { result in
             switch result {
             case .success(let detailedPlaylist):
                 self.detailedPlaylist = detailedPlaylist
                 print(detailedPlaylist.id)
             case .failure(let error):
-                switch error {
-                case .invalidData:
-                    self.alertItem = AlertContext.invalidData
-                case .invalidResponse:
-                    self.alertItem = AlertContext.invalidResponse
-                case .parsingError:
-                    self.alertItem = AlertContext.unableToComplete
-                case .noConnection:
-                    self.alertItem = AlertContext.unableToComplete
-                default:
-                    self.alertItem = AlertContext.unableToComplete
-                }
+                self.handleNetworkError(error)
             }
         }
     }
+    func handleNetworkError(_ error: httpError) {
+        switch error {
+        case .invalidData:
+            self.alertItem = AlertContext.invalidData
+        case .invalidResponse:
+            self.alertItem = AlertContext.invalidResponse
+        case .parsingError:
+            self.alertItem = AlertContext.unableToComplete
+        case .noConnection:
+            self.alertItem = AlertContext.unableToComplete
+        default:
+            self.alertItem = AlertContext.unableToComplete
+        }
+    }
+
 }

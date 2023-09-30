@@ -32,7 +32,7 @@ struct ArtistDetailView: View {
             Alert(title: alert.title, message: alert.description, dismissButton: alert.dismissButton)
         })
         .onAppear() {
-            viewModel.fetchArtistDetails(artistID: self.selectedArtistId)
+            viewModel.fetchData(id: self.selectedArtistId)
         }
         
     }

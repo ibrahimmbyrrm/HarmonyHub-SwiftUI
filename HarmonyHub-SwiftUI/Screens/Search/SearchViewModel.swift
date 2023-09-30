@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-final class SearchViewModel : ObservableObject, AlertShowable {
+final class SearchViewModel : ObservableObject, AlertShowable,NetworkFetchable {
     
     
     var service : NetworkService
@@ -28,25 +28,28 @@ final class SearchViewModel : ObservableObject, AlertShowable {
     @Published var alertItem: AlertItem?
  
     
-    func fetchPlaylists() {
+    func fetchData(id : Int?) {
         service.fetchData(type: EndPointItems<Playlists>.playlists) { result in
             switch result {
             case .success(let playlists):
                 self.playlists = playlists.data
             case .failure(let error):
-                switch error {
-                case .invalidData:
-                    self.alertItem = AlertContext.invalidData
-                case .invalidResponse:
-                    self.alertItem = AlertContext.invalidResponse
-                case .parsingError:
-                    self.alertItem = AlertContext.unableToComplete
-                case .noConnection:
-                    self.alertItem = AlertContext.unableToComplete
-                default:
-                    self.alertItem = AlertContext.unableToComplete
-                }
+                self.handleNetworkError(error)
             }
+        }
+    }
+    func handleNetworkError(_ error: httpError) {
+        switch error {
+        case .invalidData:
+            self.alertItem = AlertContext.invalidData
+        case .invalidResponse:
+            self.alertItem = AlertContext.invalidResponse
+        case .parsingError:
+            self.alertItem = AlertContext.unableToComplete
+        case .noConnection:
+            self.alertItem = AlertContext.unableToComplete
+        default:
+            self.alertItem = AlertContext.unableToComplete
         }
     }
     func fetchSearchResults() {
